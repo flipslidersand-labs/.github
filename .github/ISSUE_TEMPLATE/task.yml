@@ -1,0 +1,42 @@
+name: "タスク"
+description: "汎用タスク・機能追加・バグ修正。appetite(時間の上限)を先に決めてから着手する"
+title: "[TASK] "
+labels: []
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "内容"
+      description: "何をするか。バグなら再現手順、機能追加なら期待する挙動"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "優先度"
+      options:
+        - "P1 — 高（今週中）"
+        - "P2 — 中（今月中）"
+        - "P3 — 低（今四半期中）"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: appetite
+    attributes:
+      label: "Appetite（時間の上限）"
+      description: "「できる範囲」からではなく先に上限を決める。超えそうなら着手前に分割する"
+      options:
+        - "small — 数時間・1PRで完結"
+        - "big — 数日・3ファイル超の設計変更が出たら分割を検討"
+    validations:
+      required: false
+
+  - type: input
+    id: estimate
+    attributes:
+      label: "見積もり（h）"
+      placeholder: "例：4h　不明なら ?"
+    validations:
+      required: false
